@@ -1,0 +1,15 @@
+<a href="/new" class="bg-blue-500 text-white px-4 py-2 rounded">Dodaj trening</a>
+<a href="/progress" class="bg-green-500 text-white px-4 py-2 rounded ml-2">Postępy</a>
+<ul class="mt-6">
+  <% workouts.forEach(w => { %>
+    <li class="bg-white shadow p-4 mb-3 rounded">
+      <strong><%= w.type %></strong> — <%= w.intensity %>, <%= w.duration %> min
+      <div class="mt-2">
+        <a href="/edit/<%= w._id %>" class="text-blue-500">Edytuj</a>
+        <form action="/delete/<%= w._id %>" method="POST" class="inline ml-2">
+          <button type="submit" class="text-red-500">Usuń</button>
+        </form>
+      </div>
+    </li>
+  <% }) %>
+</ul>

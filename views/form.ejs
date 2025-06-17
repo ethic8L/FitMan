@@ -1,0 +1,11 @@
+<h1 class="text-xl font-bold mb-4">Nowy trening</h1>
+<form action="/new" method="POST" class="space-y-4">
+  <input name="type" placeholder="Typ treningu" class="w-full p-2 border rounded" required>
+  <select name="intensity" class="w-full p-2 border rounded" required>
+    <option value="niska">Niska</option>
+    <option value="średnia">Średnia</option>
+    <option value="wysoka">Wysoka</option>
+  </select>
+  <input type="number" name="duration" placeholder="Czas trwania (min)" class="w-full p-2 border rounded" required min="1">
+  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Zapisz</button>
+</form>

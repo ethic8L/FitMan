@@ -1,0 +1,10 @@
+<form action="/edit/<%= workout._id %>" method="POST" class="space-y-4">
+  <input name="type" value="<%= workout.type %>" class="w-full p-2 border rounded">
+  <select name="intensity" class="w-full p-2 border rounded">
+    <option <%= workout.intensity === 'niska' ? 'selected' : '' %>>niska</option>
+    <option <%= workout.intensity === 'średnia' ? 'selected' : '' %>>średnia</option>
+    <option <%= workout.intensity === 'wysoka' ? 'selected' : '' %>>wysoka</option>
+  </select>
+  <input type="number" name="duration" value="<%= workout.duration %>" class="w-full p-2 border rounded">
+  <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded">Aktualizuj</button>
+</form>
