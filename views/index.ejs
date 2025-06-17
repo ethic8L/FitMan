@@ -1,15 +1,52 @@
-<a href="/new" class="bg-blue-500 text-white px-4 py-2 rounded">Dodaj trening</a>
-<a href="/progress" class="bg-green-500 text-white px-4 py-2 rounded ml-2">Postępy</a>
-<ul class="mt-6">
-  <% workouts.forEach(w => { %>
-    <li class="bg-white shadow p-4 mb-3 rounded">
-      <strong><%= w.type %></strong> — <%= w.intensity %>, <%= w.duration %> min
-      <div class="mt-2">
-        <a href="/edit/<%= w._id %>" class="text-blue-500">Edytuj</a>
-        <form action="/delete/<%= w._id %>" method="POST" class="inline ml-2">
-          <button type="submit" class="text-red-500">Usuń</button>
-        </form>
-      </div>
-    </li>
-  <% }) %>
-</ul>
+<div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 space-y-6">
+  <h1 class="text-4xl font-extrabold text-center text-gradient bg-gradient-to-r from-blue-500 to-teal-400 mb-8 animate-gradient-x">
+    🏋️ FitMan – Treningi
+  </h1>
+
+  <div class="flex justify-center gap-4 mb-6">
+    <a href="/new" 
+       class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105 active:scale-95">
+      Dodaj trening
+    </a>
+    <a href="/progress" 
+       class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105 active:scale-95">
+      Postępy
+    </a>
+  </div>
+
+  <ul class="space-y-4">
+    <% workouts.forEach(w => { %>
+      <li class="bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-md p-6 flex justify-between items-center group hover:shadow-xl transition-shadow">
+        <div>
+          <strong class="text-lg font-semibold text-gray-900"><%= w.type %></strong>
+          <p class="text-sm text-gray-600"><%= w.intensity %>, <%= w.duration %> min</p>
+        </div>
+        <div class="space-x-4 opacity-0 group-hover:opacity-100 transition-opacity flex items-center">
+          <a href="/edit/<%= w._id %>" class="text-blue-500 hover:text-blue-700 font-medium">Edytuj</a>
+          <form action="/delete/<%= w._id %>" method="POST">
+            <button type="submit" 
+              class="text-red-500 hover:text-red-700 font-medium focus:outline-none focus:ring-2 focus:ring-red-300 rounded">
+              Usuń
+            </button>
+          </form>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+
+<style>
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+.animate-gradient-x {
+  background-size: 200% auto;
+  animation: gradient-x 4s linear infinite;
+}
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+</style>

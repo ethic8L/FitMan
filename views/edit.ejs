@@ -1,10 +1,35 @@
-<form action="/edit/<%= workout._id %>" method="POST" class="space-y-4">
-  <input name="type" value="<%= workout.type %>" class="w-full p-2 border rounded">
-  <select name="intensity" class="w-full p-2 border rounded">
-    <option <%= workout.intensity === 'niska' ? 'selected' : '' %>>niska</option>
-    <option <%= workout.intensity === 'średnia' ? 'selected' : '' %>>średnia</option>
-    <option <%= workout.intensity === 'wysoka' ? 'selected' : '' %>>wysoka</option>
-  </select>
-  <input type="number" name="duration" value="<%= workout.duration %>" class="w-full p-2 border rounded">
-  <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded">Aktualizuj</button>
-</form>
+<div class="max-w-lg mx-auto bg-white rounded-xl shadow-lg p-8 space-y-6">
+  <h1 class="text-3xl font-bold mb-6 text-center text-indigo-600">Nowy trening</h1>
+  <form action="/new" method="POST" class="space-y-5">
+    <input 
+      name="type" 
+      placeholder="Typ treningu" 
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+      required
+    >
+    <select 
+      name="intensity" 
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+      required
+    >
+      <option value="">Wybierz intensywność</option>
+      <option value="niska">Niska</option>
+      <option value="średnia">Średnia</option>
+      <option value="wysoka">Wysoka</option>
+    </select>
+    <input 
+      type="number" 
+      name="duration" 
+      placeholder="Czas trwania (min)" 
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
+      required
+      min="1"
+    >
+    <button 
+      type="submit" 
+      class="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:bg-indigo-700 active:scale-95 transition-transform"
+    >
+      Zapisz
+    </button>
+  </form>
+</div>

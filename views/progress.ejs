@@ -1,7 +1,19 @@
-<h1 class="text-2xl font-bold mb-4 text-center">Postępy</h1>
-<p class="text-lg text-center">
-  W ostatnich 7 dniach wykonano: <span class="font-bold"><%= count %></span> treningów.
+<h1 class="text-3xl font-extrabold mb-6 text-center text-indigo-600 drop-shadow-md">
+  Postępy
+</h1>
+<p class="text-xl text-center text-gray-700">
+  W ostatnich 7 dniach wykonano: 
+  <span class="font-extrabold text-indigo-700 text-2xl mx-1 px-3 py-1 rounded-lg bg-indigo-100 shadow-md inline-block animate-pulse">
+    <%= count %>
+  </span> 
+  treningów.
 </p>
-<div class="text-center mt-4">
-  <a href="/" class="text-blue-500">← Powrót</a>
+<div class="text-center mt-8">
+  <a 
+    href="/" 
+    class="inline-block text-indigo-600 font-semibold hover:text-indigo-800 
+           transition-colors duration-300 ease-in-out transform hover:scale-105"
+  >
+    ← Powrót
+  </a>
 </div>
